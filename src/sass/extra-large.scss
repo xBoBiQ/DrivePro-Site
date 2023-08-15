@@ -1,0 +1,55 @@
+@import "./colors.scss";
+
+@media (min-width: 1220px) {
+	.nav {
+		&__container {
+			padding: 2em 0;
+		}
+	}
+
+	.upcoming-course {
+		&__icon--one {
+			top: 50%;
+			left: 19%;
+		}
+
+		&__icon--two {
+			left: 70%;
+		}
+	}
+
+	.about-us {
+		background-image: url('../img/car-big.jpg');
+
+	}
+
+	.contact {
+		&__icon--one {
+			width: 19rem;
+		}
+
+		&__icon--three {
+			left: 43%;
+		}
+
+		&__container {
+			column-gap: 14em;
+		}
+	}
+
+	.pricing {
+
+        &__card-extra-hour {
+			width: 70%;
+        }
+    }
+
+}
+
+@media (min-width: 1250px) {
+	.section-padding {
+		padding-right: 0;
+		padding-left: 0;
+	}
+
+}

@@ -1,0 +1,47 @@
+@import "./colors.scss";
+
+@media (min-width: 768px) {
+
+    .upcoming-course {
+        
+        &__icon--one {
+            top: 54%;
+            width: 14rem;
+            transform: rotate(30deg);
+            opacity: .05;
+        }
+        
+        &__icon--two {
+            width: 9.5rem;
+            transform: rotate(-17deg);
+            opacity: .03;
+        }
+    }
+
+    .pricing {
+        &__icon--one {
+            left: 44%;
+        }
+
+        &__extra-hour-box {
+            grid-template: 
+            'heading boxLeft'
+            'heading boxRight';
+        }
+
+        &__extra-hour-heading {
+            width: 100%;
+            height: 100%;
+
+            &::before {
+                bottom: 50%;
+                left: 100%;
+                width: 3px;
+                height: 90%;
+                translate: 50% 50%;
+            }
+        }
+
+    }
+
+}
