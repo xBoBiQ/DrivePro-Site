@@ -667,23 +667,28 @@ body {
 	}
 
 	&__socials {
+		display: flex;
+
 		margin-top: 2em;
 	}
 
-	&__socialmedia {
-		position: relative;
-		left: -1em;
-		padding: 1em;
-		margin-right: 0.3em;
+	&__socialmedia:nth-child(1),
+	&__socialmedia:nth-child(2) {
+		margin-right: .8em;
+	}
 
-		&:hover .header__socialmedia-img {
+	&__socialmedia {
+		display: block;
+		padding: 1em;
+		transition: transform 0.3s ease-in-out;
+
+		&:hover {
 			transform: rotate(15deg);
 		}
 	}
 
-	&__socialmedia-img {
-		width: 3rem;
-		transition: transform 0.3s ease-in-out;
+	&__socialmedia-svg {
+		transform: scale(1.2);
 	}
 
 	// MAP
