@@ -4,6 +4,7 @@ let $burgerBtn;
 let $mobileLinks;
 let $footerYear;
 let $nav;
+let $body;
 
 const main = () => {
     prepareDOMElements();
@@ -17,6 +18,7 @@ const prepareDOMElements = () => {
     $mobileLinks = document.querySelector('.nav__mobile-links');
     $footerYear = document.querySelector('.footer__year');
     $nav = document.querySelector('.nav');
+    $body = document.querySelector('body');
 }
 
 const prepareDOMEvents = () => {
@@ -29,6 +31,8 @@ const prepareDOMEvents = () => {
 
 const showNav = () => {
     $navMobile.classList.toggle('show-nav')
+    $body.classList.toggle('disable-scroll')
+    
 }
 
 const handleCurrentYear = () => {
