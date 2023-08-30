@@ -80,7 +80,6 @@
 		</header>
 
 		<main>
-
 		<section id="upcoming-course" class="upcoming-course section-padding">
 			<img class="upcoming-course__icon upcoming-course__icon--one" src="./dist/img/calendar-icon.svg" alt="">
 			<img class="upcoming-course__icon upcoming-course__icon--two" src="./dist/img/calendar-icon.svg" alt="">
@@ -387,12 +386,33 @@
 					
 				</div>
 
-				<form action="" class="contact__form  contact__container-item flex-center">
-					<input type="text" placeholder="Imię" class="contact__input contact__form-item">
-					<input type="email" placeholder="Email" class="contact__input contact__form-item">
-					<input type="text" placeholder="Temat" class="contact__input contact__form-item">
-					<textarea placeholder="Treść wiadomości" class="contact__form-text contact__form-item"></textarea>
+				<form method="" class="contact__form  contact__container-item flex-center">
+					<div class="contact__form-box">
+						<input type="text" id="name" placeholder="Imię" class="contact__input contact__form-item">
+						<p class="error-text">error</p>
+					</div>
+
+					<div class="contact__form-box">
+						<input type="email" id="email" placeholder="Email" class="contact__input contact__form-item">
+						<p class="error-text">error</p>
+					</div>
+
+					<div class="contact__form-box">
+						<input type="text" id="topic" placeholder="Temat" class="contact__input contact__form-item">
+						<p class="error-text">error</p>
+					</div>
+
+					<div class="contact__form-box">
+						<textarea id="message" placeholder="Wiadomość" class="contact__form-text contact__form-item"></textarea>
+						<p class="error-text">error</p>
+					</div>
+
 					<button type="submit" class="contact__form-btn">Wyślij</button>
+
+						<div class="contact__popup">
+							<p class="contact__popup-text">Formularz został poprawnie wysłany!</p>
+							<button class="contact__close">Zamknij</button>
+						</div>
 				</form>
 			</div>
 		</section>

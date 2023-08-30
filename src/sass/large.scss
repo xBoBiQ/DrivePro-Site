@@ -79,7 +79,6 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 10em 7em;
-        
         }
 
         &__section-heading {
@@ -107,6 +106,12 @@
         &__card-extra-hour {
             width: 86%;
             margin: 6em auto;
+        }
+    }
+
+    .contact {
+        &__popup {
+            width: 77rem;
         }
     }
 
