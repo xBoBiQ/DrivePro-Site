@@ -1,4 +1,4 @@
-@import "./colors.scss";
+@use "colors" as c;
 
 @media (min-width: 768px) {
 
@@ -15,6 +15,12 @@
             width: 9.5rem;
             transform: rotate(-17deg);
             opacity: .03;
+        }
+    }
+
+    .about-us {
+        &__paragraph {
+            font-size: 1.8rem;
         }
     }
 

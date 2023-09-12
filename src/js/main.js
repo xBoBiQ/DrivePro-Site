@@ -1,7 +1,7 @@
 let $html;
 let $navMobile;
 let $burgerBtn;
-let $mobileLinks;
+let $navLinks;
 let $footerYear;
 let $nav;
 let $body;
@@ -18,10 +18,10 @@ const main = () => {
 }
 
 const prepareDOMElements = () => {
-    $html = document.querySelector('html')
-    $navMobile = document.querySelector('.nav__mobile');
+    $html = document.querySelector('html');
+    $navMobile = document.querySelector('.nav__box-links');
     $burgerBtn = document.querySelector('.nav__burger-btn');
-    $mobileLinks = document.querySelector('.nav__mobile-links');
+    $navLinks = document.querySelectorAll('.nav__link');
     $footerYear = document.querySelector('.footer__year');
     $nav = document.querySelector('.nav');
     $body = document.querySelector('body');
@@ -29,15 +29,19 @@ const prepareDOMElements = () => {
     $email = document.querySelector('#email');
     $topic = document.querySelector('#topic');
     $message = document.querySelector('#message');
-    $sendMsgBtn = document.querySelector('.contact__form-btn')
-    $popup = document.querySelector('.contact__popup')
+    $sendMsgBtn = document.querySelector('.contact__form-btn');
+    $popup = document.querySelector('.contact__popup');
 }
 
 const prepareDOMEvents = () => {
     handleCurrentYear()
     window.addEventListener('scroll', addNavShadow)
     $burgerBtn.addEventListener('click', showNav)
-    $mobileLinks.addEventListener('click', showNav)
+
+    $navLinks.forEach( e => {
+        e.addEventListener('click', showNav)
+    })
+
     setPaddingScroll()
     $sendMsgBtn.addEventListener('click', e => {
         e.preventDefault();
@@ -51,9 +55,11 @@ const prepareDOMEvents = () => {
 }
 
 const showNav = () => {
+    
+    if($body.offsetWidth < 992){
     $navMobile.classList.toggle('show-nav')
     $body.classList.toggle('disable-scroll')
-    
+    }
 }
 
 const handleCurrentYear = () => {
@@ -85,7 +91,7 @@ const showError = (input, msg) => {
 const checkForm = input => {
     input.forEach(el => {
         if (el.value === '') {
-            showError(el, `Pole ${el.placeholder} nie może być puste.`)
+            showError(el, `Pole ${el.previousElementSibling.innerText} nie może być puste.`)
         } else {
             clearError(el)
         };
@@ -94,7 +100,7 @@ const checkForm = input => {
 
 const checkLength = (input, min) => {
     if (input.value.length < min) {
-        showError(input, `${input.previousElementSibling.innerText.slice(0, -1)} musi składać się z min. ${min} znaków.`);
+        showError(input, `${input.previousElementSibling.innerText} musi składać się z min. ${min} znaków.`);
     }
 }
 
@@ -131,4 +137,4 @@ const clearError = (input) => {
     formBox.classList.remove('error');
 }
 
-document.addEventListener('DOMContentLoaded', main);
+document.addEventListener('DOMContentLoaded', main)

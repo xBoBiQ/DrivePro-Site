@@ -1,11 +1,11 @@
-@import "./colors.scss";
+@use "colors" as c;
 
 @media (min-width: 1220px) {
-	.nav {
-		&__container {
-			padding: 2em 0;
-		}
-	}
+	// .nav {
+	// 	&__container {
+	// 		padding: 2em 0;
+	// 	}
+	// }
 
 	.upcoming-course {
 		&__icon--one {
@@ -21,6 +21,9 @@
 	.about-us {
 		background-image: url('../img/car-big.jpg');
 
+		&__paragraph {
+			font-size: 2rem;
+		}
 	}
 
 	.contact {

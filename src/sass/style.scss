@@ -64,7 +64,7 @@ main {
 	top: 0;
 	left: 0;
 	z-index: -10;
-	background-color: rgba(0, 0, 0, 0.8);
+	background-color: rgba(0, 0, 0, 0.82);
 }
 
 .grid-center{
@@ -81,8 +81,6 @@ main {
 
 .error-text {
 	display: none;
-	// visibility: hidden;
-	margin-bottom: 1em;
 	font-size: 1.4rem;
 	color: c.$error;
 }
@@ -105,7 +103,7 @@ main {
 	left: 0;
 	z-index: 500;
 	width: 100%;
-	min-height: 9rem;
+	min-height: 8rem;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -122,7 +120,7 @@ main {
 	&__logo {
 		position: relative;
 		left: -0.3em;
-		font-size: 3.8rem;
+		font-size: 3.1rem;
 		font-weight: 700;
 		color: c.$light;
 		text-decoration: none;
@@ -148,72 +146,38 @@ main {
 		width: 3.6rem;
 	}
 
-	&__mobile {
+	&__box-links {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
 		position: fixed;
 		top: 0;
 		left: 100%;
-		min-width: 100vw;
-		max-width: 100vw;
-		min-height: 100vh;
-		max-height: 100vh;
+		min-width: 100%;
+		max-width: 100%;
+		min-height: 100%;
+		max-height: 100%;
 		z-index: 800;
+		font-size: 3rem;
+		text-align: center;
 		background-color: c.$bg-two;
 		transition: left 0.3s;
 	}
-
-	&__desktop {
-		display: none;
-		justify-content: center;
-		height: 100%;
-	}
-
-	&__desktop-link {
-		position: relative;
-		margin-left: 0.5em;
-		font-size: 1.9rem;
-		padding: 1em;
-		font-weight: 700;
-
-		&:hover::before {
-			width: 100%;
-		}
-	}
-
-	&__desktop-link::before {
-		content: "";
-		position: absolute;
-		bottom: 0;
-		left: 0;
-		width: 0;
-		height: 3px;
-		background-color: c.$light;
-		transition: width 0.3s;
-	}
-
-	&__desktop > li {
-		list-style-type: none;
-	}
-
-	&__mobile-links {
-		font-size: 4rem;
-		text-align: center;
-	}
-
-	&__mobile-links li {
-		margin-bottom: 0.4em;
-		list-style-type: none;
-	}
-
+	
 	&__link {
 		display: block;
+		margin-bottom: 0.4em;
 		text-decoration: none;
 		color: c.$light;
 		text-transform: capitalize;
-	}
-
-	&__mobile-link {
 		padding: 0.5em;
 	}
+	
+	&__box-links li {
+		list-style-type: none;
+	}
+
 }
 
 .disable-scroll {
@@ -241,20 +205,11 @@ main {
 		position: relative;
 		top: 50%;
 		z-index: 10;
-		// width: fit-content;
-		// margin-left: 50%;
-		// translate: -50%;
-		
-		// align-items: center;
-
-		// margin: 0 auto;
 		translate: 0 -50% ;
-		
 	}
 
 	&__container * {
 		width: fit-content;
-		// text-align: center;
 	}
 	
 	&__heading {
@@ -267,7 +222,7 @@ main {
 		position: relative;
 		padding: 1em 2em;
 		margin-top: 1em;
-		font-size: 2.2rem;
+		font-size: 2rem;
 		font-weight:  700;
 		color: c.$light;
 		text-transform: capitalize;
@@ -275,6 +230,7 @@ main {
 		background: rgb(49,43,119);
 		background: linear-gradient(323deg, rgba(49,43,119,1) 9%, rgba(69,65,111,1) 100%);
 		border: none;
+		text-align: center;
 		cursor: pointer;
 		outline: 3px solid transparent;
 		transition: background .3s, outline .3s linear;
@@ -283,7 +239,6 @@ main {
 			outline: 3px solid c.$main;
 			background: rgb(39, 34, 93);
 			background: linear-gradient(323deg, rgb(42, 37, 103) 9%, rgb(60, 57, 96) 100%);
-
 		}
 	}
 
@@ -398,11 +353,13 @@ main {
 		margin-top: 1em;
 		font-size: 1.8rem;
 		color: c.$light;
+		font-weight: 700;
 		text-decoration: none;
+		text-transform: uppercase;
 		overflow: hidden;
 
 		&:hover::before {
-			height: 100%;
+			bottom: 0;
 		}
 	}
 
@@ -410,12 +367,12 @@ main {
 		content: "";
 		position: absolute;
 		left: 0;
-		bottom: 0;
+		bottom: calc(-100% + 2px);
 		z-index: -10;
 		width: 100%;
-		height: 2px;
+		height: 100%;
 		background-color: c.$main;
-		transition: height 0.3s;
+		transition: bottom 0.3s;
 	}
 }
 
@@ -434,9 +391,14 @@ main {
 		max-width: 992px;
 	}
 
-	&__text {
+	&__paragraph {
 		font-size: 1.6rem;
 		text-align: center;
+		margin-bottom: 2em;
+	}
+
+	&__paragraph:last-of-type {
+		margin-bottom: 0;
 	}
 }
 
@@ -538,7 +500,8 @@ main {
 		padding: 5em 5em;
 		margin: 2em 0;
 		background-color: c.$bg-two;
-		border: 2px solid c.$main;
+		transform: scale(1);
+		transition: transform .3s;
 
 		&::before {
 			content: '';
@@ -549,14 +512,18 @@ main {
 			left: 50%;
 			translate: -50% -50%;
 		}
-		
-		&:hover::before {
-			animation: pulse 1s;
+
+		&:hover {
+			transform: scale(1.06);
 		}
 	}
 
 	&__card * {
 		text-align: center;
+	}
+
+	&__card--two {
+		border: 2px solid c.$main;
 	}
 
 	&__price {
@@ -569,6 +536,7 @@ main {
 		flex-direction: row;
 		align-items: center;
 		padding: 0;
+		border: 2px solid c.$main;
 	}
 
 	&__card-extra-hour * {
@@ -684,14 +652,13 @@ main {
 	&__box-info {
 		display: flex;
 		flex-direction: column;
-		// align-items: center;
+		align-items: center;
 		width: 100%;
 
 	}
 
 	&__h3 {
 		margin: .4em 0;
-		// text-align: center;
 	}
 
 	&__option {
@@ -714,12 +681,12 @@ main {
 	&__socialmedia:nth-child(2) {
 		margin-right: .8em;
 	}
-
+	
 	&__socialmedia {
 		display: block;
 		padding: 1em;
 		transition: transform 0.3s ease-in-out;
-
+		
 		&:hover {
 			transform: rotate(15deg);
 		}
@@ -812,25 +779,32 @@ main {
 	}
 
 	&__form-box {
+		position: relative;
 		width: 100%;
+		margin-bottom: 1.5em;
+	}
+	
+	&__form-name {
+		margin: .6em 0;
+		font-size: 2rem;
 	}
 
 	&__form-item {
 		width: 100%;
-		padding: .7em;
-		margin: .6em 0;
-		font-size: 1.6rem;
+		padding: .9em;
+		margin: .6em 0 .3em 0;
 		background-color: c.$two;
 		border: 3px solid c.$three;
+		font-size: 1.6rem;
 		color: c.$light;
 		font-weight: 400;
 		text-transform: none;
+		outline: 2px solid transparent;
 		transition: outline .3s;
-		outline: 0 solid c.$four;
-
-		&:focus {
-			outline: 3px solid c.$four;
-		}
+		
+			&:focus {
+				outline: 2px solid c.$main;
+			}
 	}
 	
 	&__form-text {
@@ -916,20 +890,6 @@ main {
 		color: c.$main;
 	}
 }
-
-
-@keyframes pulse {
-	from {
-		transform: scale(1);
-		border: 1px solid c.$main;
-	}
-	to {
-		transform: scale(1.15);
-		border: 1px solid transparent;
-	}
-}
-
-
 
 @import "small.scss";
 @import "medium.scss";
