@@ -67,6 +67,11 @@ main {
 	background-color: rgba(0, 0, 0, 0.82);
 }
 
+.bg-icon {
+	position: absolute;
+	pointer-events: none;
+}
+
 .grid-center{
 	display: grid;
 	justify-self: center;
@@ -282,10 +287,6 @@ main {
 	width: 100%;
 	background-color: c.$bg-two;
 
-	&__icon {
-		position: absolute;
-	}
-
 	&__icon--one {
 		top: 58%;
 		left: 10%;
@@ -404,10 +405,6 @@ main {
 
 .pricing {
 	position: relative;
-
-	&__icon {
-		position: absolute;
-	}
 
 	&__icon--one {
 		top: 32%;
@@ -614,10 +611,6 @@ main {
 	background-color: c.$bg-two;
 	z-index: 0;
 
-	&__icon {
-		position: absolute;
-	}
-
 	&__icon--one {
 		top: 10%;
 		left: 73%;
@@ -763,7 +756,6 @@ main {
 	}
 
 	&__mail-icon {
-		position: absolute;
 		min-height: 100%;
 		min-width: 100%;
 		transform: rotate(31deg);
