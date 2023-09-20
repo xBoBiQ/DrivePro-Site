@@ -18,7 +18,6 @@
         }
 
         &__link {
-            // display: inline;
             position: relative;
             margin: 0 0 0 0.5em;
             font-size: 1.9rem;
@@ -40,13 +39,6 @@
             background-color: c.$light;
             transition: width 0.3s;
         }
-        // &__desktop {
-        //     display: flex;
-        // }
-        
-        // &__mobile {
-        //     display: none;
-        // }
 
         &__burger-btn {
             display: none;
